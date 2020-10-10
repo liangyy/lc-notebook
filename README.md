@@ -1,0 +1,2 @@
+# lc-notebook
+LeetCode NoteBook
