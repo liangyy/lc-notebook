@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Small Trick on LeetCode NoteBook</title>
+    <link>https://liangyy.github.io/lc-notebook/smalltrick/</link>
+    <description>Recent content in Small Trick on LeetCode NoteBook</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 10 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://liangyy.github.io/lc-notebook/smalltrick/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Q337: House Robber III</title>
+      <link>https://liangyy.github.io/lc-notebook/smalltrick/q337/</link>
+      <pubDate>Sat, 10 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://liangyy.github.io/lc-notebook/smalltrick/q337/</guid>
+      <description>The thief has found himself a new place for his thievery again. There is only one entrance to this area, called the &amp;quot;root.&amp;quot; Besides the root, each house has one and only one parent house. After a tour, the smart thief realized that &amp;quot;all houses in this place forms a binary tree&amp;quot;. It will automatically contact the police if two directly-linked houses were broken into on the same night. Determine the maximum amount of money the thief can rob tonight without alerting the police.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Q337: House Robber III - LeetCode NoteBook</title>
+<meta name="description" content="Write down temporary &#39;wisdom&#39; ..">
+<meta name="generator" content="Hugo 0.76.3" />
+<link href="https://liangyy.github.io/lc-notebook/index.xml" rel="alternate" type="application/rss+xml">
+<link rel="canonical" href="https://liangyy.github.io/lc-notebook/smalltrick/q337/">
+<link rel="stylesheet" href="https://liangyy.github.io/lc-notebook/css/theme.min.css">
+<script src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+<link rel="stylesheet" href="https://liangyy.github.io/lc-notebook/css/chroma.min.css">
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery.easing@1.4.1/jquery.easing.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script>
+<script src="https://liangyy.github.io/lc-notebook/js/bundle.js"></script><style>
+:root {--custom-background-color: #99ccff;}
+</style>
+<meta property="og:title" content="Q337: House Robber III" />
+<meta property="og:description" content="The thief has found himself a new place for his thievery again. There is only one entrance to this area, called the &quot;root.&quot; Besides the root, each house has one and only one parent house. After a tour, the smart thief realized that &quot;all houses in this place forms a binary tree&quot;. It will automatically contact the police if two directly-linked houses were broken into on the same night. Determine the maximum amount of money the thief can rob tonight without alerting the police." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://liangyy.github.io/lc-notebook/smalltrick/q337/" />
+<meta property="article:published_time" content="2020-10-10T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-10-10T00:00:00+00:00" /><meta property="og:site_name" content="LeetCode NoteBook" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Q337: House Robber III"/>
+<meta name="twitter:description" content="The thief has found himself a new place for his thievery again. There is only one entrance to this area, called the &quot;root.&quot; Besides the root, each house has one and only one parent house. After a tour, the smart thief realized that &quot;all houses in this place forms a binary tree&quot;. It will automatically contact the police if two directly-linked houses were broken into on the same night. Determine the maximum amount of money the thief can rob tonight without alerting the police."/>
+<meta itemprop="name" content="Q337: House Robber III">
+<meta itemprop="description" content="The thief has found himself a new place for his thievery again. There is only one entrance to this area, called the &quot;root.&quot; Besides the root, each house has one and only one parent house. After a tour, the smart thief realized that &quot;all houses in this place forms a binary tree&quot;. It will automatically contact the police if two directly-linked houses were broken into on the same night. Determine the maximum amount of money the thief can rob tonight without alerting the police.">
+<meta itemprop="datePublished" content="2020-10-10T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-10-10T00:00:00+00:00" />
+<meta itemprop="wordCount" content="391">
+
+
+
+<meta itemprop="keywords" content="" />
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$','$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  };
+
+  window.addEventListener('load', (event) => {
+      document.querySelectorAll("mjx-container").forEach(function(x){
+        x.parentElement.classList += 'has-jax'})
+    });
+
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body><div class="container"><header>
+<h1>LeetCode NoteBook</h1><a href="https://github.com/liangyy/lc-notebook" class="github"><i class="fab fa-github"></i></a>
+<p class="description">Write down temporary &#39;wisdom&#39; ..</p>
+
+</header>
+<div class="global-menu">
+<nav>
+<ul>
+<li><a href="/lc-notebook/">Home</a></li>
+<li><a href="https://twitter.com/yanyu_liang">Twitter</a></li>
+<li><a href="/lc-notebook/about/">About Hugo</a></li></ul>
+</nav>
+</div>
+<div class="content-container">
+<main><h1>Q337: House Robber III</h1>
+<pre><code>The thief has found himself a new place for his thievery again. There is only one entrance to this area, called the &quot;root.&quot; Besides the root, each house has one and only one parent house. After a tour, the smart thief realized that &quot;all houses in this place forms a binary tree&quot;. It will automatically contact the police if two directly-linked houses were broken into on the same night.
+
+Determine the maximum amount of money the thief can rob tonight without alerting the police.
+
+Example 1:
+
+Input: [3,2,3,null,3,null,1]
+
+     3
+    / \
+   2   3
+    \   \ 
+     3   1
+
+Output: 7 
+Explanation: Maximum amount of money the thief can rob = 3 + 3 + 1 = 7.
+Example 2:
+
+Input: [3,4,5,1,3,null,1]
+
+     3
+    / \
+   4   5
+  / \   \ 
+ 1   3   1
+
+Output: 9
+Explanation: Maximum amount of money the thief can rob = 4 + 5 = 9.
+</code></pre><p>As in tree structure, we can say that the problem for the tree can be divided into problems of the left and right subtrees and once we get these subproblems out, we could merge them somehow to get the answer for the full tree.</p>
+<p>It fits well for tree structure since we don&rsquo;t need to worry about the issue of duplicated work.
+The root could either be robbed or not and the solution takes the better one among the two.</p>
+<pre><code>no_rob_val(node) = 
+  max(rob_val(node.left), no_rob_val(node.left)) + 
+  max(rob_val(node.right), no_rob_val(node.right))
+rob_val(node) = node.val + no_rob_val(node.left) + no_rob_val(node.right)
+</code></pre><p>From here, the first thought is to solve <code>rob_val</code> and <code>no_rob_val</code> separately.
+But the problem is that <code>rob_val(node)</code> and <code>no_rob_val(node)</code> generates duplicated recursion.
+More specifically, they ask for <code>no_rob_val(node.left)</code> and <code>no_rob_val(node.right)</code> twice.</p>
+<p>OK, here comes the <strong>trick</strong>.
+We can solve the <code>rob_val</code> and <code>no_rob_val</code> in one calculation, simply we calculate <code>no_rob_val(node.left)</code> and <code>no_rob_val(node.right)</code> once and apply to both <code>no_rob_val(node)</code> and <code>rob_val(node)</code>.</p>
+<p>So, it becomes:</p>
+<pre><code>no_rob_val_left, rob_val_left = soln(node.left)
+no_rob_val_right, rob_val_right = soln(node.right)
+no_rob_val = 
+  max(rob_val_left, no_rob_val_left) + 
+  max(rob_val_right, no_rob_val_right)
+rob_val = node.val + no_rob_val_left + no_rob_val_right
+
+return no_rob_val, rob_val
+</code></pre><p>The Python submission.</p>
+<pre><code>class Solution:
+    def rob(self, root: TreeNode) -&gt; int:
+        norob_root, rob_soln = self.soln(root)
+        return max(norob_root, rob_soln)
+    def soln(self, node):
+        if node is None:
+            return 0, -float('inf')
+        norob_soln_l, rob_soln_l = self.soln(node.left)
+        norob_soln_r, rob_soln_r = self.soln(node.right)
+        # if rob:
+        res_rob = node.val + norob_soln_l + norob_soln_r
+        # if not rob:
+        res_norob = max(norob_soln_l, rob_soln_l) + max(norob_soln_r, rob_soln_r)
+        return res_norob, res_rob
+</code></pre><div class="edit-meta">
+Last updated on 10 Oct 2020
+
+
+<br>
+Published on 10 Oct 2020
+<br><a href="https://github.com/liangyy/lc-notebook/edit/master/content/SmallTrick/q337.md" class="edit-page"><i class="fas fa-pen-square"></i> Edit on GitHub</a></div><nav class="pagination"><a class="nav nav-prev" href="https://liangyy.github.io/lc-notebook/smalltrick/" title="Small Trick"><i class="fas fa-arrow-left" aria-hidden="true"></i> Prev - Small Trick</a>
+<a class="nav nav-next" href="https://liangyy.github.io/lc-notebook/interesting/" title="Interesting">Next - Interesting <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+</nav><footer><p class="powered">Powered by <a href="https://gohugo.io">Hugo</a>. Theme by <a href="https://themes.gohugo.io/hugo-theme-techdoc/">TechDoc</a>. Designed by <a href="https://github.com/thingsym/hugo-theme-techdoc">Thingsym</a>.</p>
+</footer>
+</main>
+<div class="sidebar">
+
+<nav class="open-menu">
+<ul>
+<li class=""><a href="https://liangyy.github.io/lc-notebook">Home</a></li>
+
+<li class=""><a href="https://liangyy.github.io/lc-notebook/needtoknow/">Need to Know</a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://liangyy.github.io/lc-notebook/needtoknow/q309/">Q309: Best Time to Buy and Sell Stock with Cooldown</a></li>
+</ul>
+  
+</li>
+
+<li class="parent"><a href="https://liangyy.github.io/lc-notebook/smalltrick/">Small Trick</a>
+  
+<ul class="sub-menu">
+<li class="active"><a href="https://liangyy.github.io/lc-notebook/smalltrick/q337/">Q337: House Robber III</a></li>
+</ul>
+  
+</li>
+
+<li class=""><a href="https://liangyy.github.io/lc-notebook/interesting/">Interesting</a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://liangyy.github.io/lc-notebook/interesting/q995/">Q995: Minimum Number of K Consecutive Bit Flips</a></li>
+</ul>
+  
+</li>
+</ul>
+</nav>
+
+
+
+<div class="sidebar-footer"></div>
+</div>
+
+</div><a href="#" id="backtothetop-fixed" class="backtothetop"
+ data-backtothetop-duration="600"
+ data-backtothetop-easing="easeOutQuart"
+ data-backtothetop-fixed-fadeIn="1000"
+ data-backtothetop-fixed-fadeOut="1000"
+ data-backtothetop-fixed-bottom="10"
+ data-backtothetop-fixed-right="20">
+<span class="fa-layers fa-fw">
+<i class="fas fa-circle"></i>
+<i class="fas fa-arrow-circle-up"></i>
+</span></a>
+</div>
+</body>
+</html>
