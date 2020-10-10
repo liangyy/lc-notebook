@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Interesting on LeetCode NoteBook</title>
+    <link>https://liangyy.github.io/lc-notebook/interesting/</link>
+    <description>Recent content in Interesting on LeetCode NoteBook</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 09 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://liangyy.github.io/lc-notebook/interesting/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Q995: Minimum Number of K Consecutive Bit Flips</title>
+      <link>https://liangyy.github.io/lc-notebook/interesting/q995/</link>
+      <pubDate>Fri, 09 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://liangyy.github.io/lc-notebook/interesting/q995/</guid>
+      <description>In an array A containing only 0s and 1s, a K-bit flip consists of choosing a (contiguous) subarray of length K and simultaneously changing every 0 in the subarray to 1, and every 1 in the subarray to 0. Return the minimum number of K-bit flips required so that there is no 0 in the array. If it is not possible, return -1. Example 1: Input: A = [0,1,0], K = 1 Output: 2 Explanation: Flip A[0], then flip A[2].</description>
+    </item>
+    
+  </channel>
+</rss>
