@@ -8,6 +8,15 @@
     <language>en-us</language>
     <lastBuildDate>Fri, 09 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://liangyy.github.io/lc-notebook/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Q309: Best Time to Buy and Sell Stock with Cooldown</title>
+      <link>https://liangyy.github.io/lc-notebook/needtoknow/q309/</link>
+      <pubDate>Sat, 10 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://liangyy.github.io/lc-notebook/needtoknow/q309/</guid>
+      <description>Say you have an array for which the ith element is the price of a given stock on day i. Design an algorithm to find the maximum profit. You may complete as many transactions as you like (ie, buy one and sell one share of the stock multiple times) with the following restrictions: You may not engage in multiple transactions at the same time (ie, you must sell the stock before you buy again).</description>
+    </item>
+    
+    <item>
       <title>Q995: Minimum Number of K Consecutive Bit Flips</title>
       <link>https://liangyy.github.io/lc-notebook/interesting/q995/</link>
       <pubDate>Fri, 09 Oct 2020 00:00:00 +0000</pubDate>

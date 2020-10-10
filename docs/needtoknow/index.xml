@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Need to Know on LeetCode NoteBook</title>
+    <link>https://liangyy.github.io/lc-notebook/needtoknow/</link>
+    <description>Recent content in Need to Know on LeetCode NoteBook</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 10 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://liangyy.github.io/lc-notebook/needtoknow/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Q309: Best Time to Buy and Sell Stock with Cooldown</title>
+      <link>https://liangyy.github.io/lc-notebook/needtoknow/q309/</link>
+      <pubDate>Sat, 10 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://liangyy.github.io/lc-notebook/needtoknow/q309/</guid>
+      <description>Say you have an array for which the ith element is the price of a given stock on day i. Design an algorithm to find the maximum profit. You may complete as many transactions as you like (ie, buy one and sell one share of the stock multiple times) with the following restrictions: You may not engage in multiple transactions at the same time (ie, you must sell the stock before you buy again).</description>
+    </item>
+    
+  </channel>
+</rss>
