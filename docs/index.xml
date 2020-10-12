@@ -8,6 +8,15 @@
     <language>en-us</language>
     <lastBuildDate>Fri, 09 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://liangyy.github.io/lc-notebook/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Q459. Repeated Substring Pattern</title>
+      <link>https://liangyy.github.io/lc-notebook/needtoknow/q459/</link>
+      <pubDate>Sun, 11 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://liangyy.github.io/lc-notebook/needtoknow/q459/</guid>
+      <description>Given a non-empty string check if it can be constructed by taking a substring of it and appending multiple copies of the substring together. You may assume the given string consists of lowercase English letters only and its length will not exceed 10000. Example 1: Input: &amp;quot;abab&amp;quot; Output: True Explanation: It&#39;s the substring &amp;quot;ab&amp;quot; twice. Example 2: Input: &amp;quot;aba&amp;quot; Output: False Example 3: Input: &amp;quot;abcabcabcabc&amp;quot; Output: True Explanation: It&#39;s the substring &amp;quot;abc&amp;quot; four times.</description>
+    </item>
+    
+    <item>
       <title>Q600: Non-negative Integers without Consecutive Ones</title>
       <link>https://liangyy.github.io/lc-notebook/needtoknow/q600/</link>
       <pubDate>Sun, 11 Oct 2020 00:00:00 +0000</pubDate>
