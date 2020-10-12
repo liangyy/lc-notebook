@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Q600: Non-negative Integers without Consecutive Ones - LeetCode NoteBook</title>
+<meta name="description" content="Write down temporary &#39;wisdom&#39; ..">
+<meta name="generator" content="Hugo 0.76.3" />
+<link href="https://liangyy.github.io/lc-notebook/index.xml" rel="alternate" type="application/rss+xml">
+<link rel="canonical" href="https://liangyy.github.io/lc-notebook/needtoknow/q600/">
+<link rel="stylesheet" href="https://liangyy.github.io/lc-notebook/css/theme.min.css">
+<script src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+<link rel="stylesheet" href="https://liangyy.github.io/lc-notebook/css/chroma.min.css">
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery.easing@1.4.1/jquery.easing.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script>
+<script src="https://liangyy.github.io/lc-notebook/js/bundle.js"></script><style>
+:root {--custom-background-color: #99ccff;}
+</style>
+<meta property="og:title" content="Q600: Non-negative Integers without Consecutive Ones" />
+<meta property="og:description" content="Given a positive integer n, find the number of non-negative integers less than or equal to n, whose binary representations do NOT contain consecutive ones. Example 1: Input: 5 Output: 5 Explanation: Here are the non-negative integers &lt;= 5 with their corresponding binary representations: 0 : 0 1 : 1 2 : 10 3 : 11 4 : 100 5 : 101 Among them, only integer 3 disobeys the rule (two consecutive ones) and the other 5 satisfy the rule." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://liangyy.github.io/lc-notebook/needtoknow/q600/" />
+<meta property="article:published_time" content="2020-10-11T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-10-11T00:00:00+00:00" /><meta property="og:site_name" content="LeetCode NoteBook" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Q600: Non-negative Integers without Consecutive Ones"/>
+<meta name="twitter:description" content="Given a positive integer n, find the number of non-negative integers less than or equal to n, whose binary representations do NOT contain consecutive ones. Example 1: Input: 5 Output: 5 Explanation: Here are the non-negative integers &lt;= 5 with their corresponding binary representations: 0 : 0 1 : 1 2 : 10 3 : 11 4 : 100 5 : 101 Among them, only integer 3 disobeys the rule (two consecutive ones) and the other 5 satisfy the rule."/>
+<meta itemprop="name" content="Q600: Non-negative Integers without Consecutive Ones">
+<meta itemprop="description" content="Given a positive integer n, find the number of non-negative integers less than or equal to n, whose binary representations do NOT contain consecutive ones. Example 1: Input: 5 Output: 5 Explanation: Here are the non-negative integers &lt;= 5 with their corresponding binary representations: 0 : 0 1 : 1 2 : 10 3 : 11 4 : 100 5 : 101 Among them, only integer 3 disobeys the rule (two consecutive ones) and the other 5 satisfy the rule.">
+<meta itemprop="datePublished" content="2020-10-11T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-10-11T00:00:00+00:00" />
+<meta itemprop="wordCount" content="515">
+
+
+
+<meta itemprop="keywords" content="" />
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$','$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  };
+
+  window.addEventListener('load', (event) => {
+      document.querySelectorAll("mjx-container").forEach(function(x){
+        x.parentElement.classList += 'has-jax'})
+    });
+
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body><div class="container"><header>
+<h1>LeetCode NoteBook</h1><a href="https://github.com/liangyy/lc-notebook" class="github"><i class="fab fa-github"></i></a>
+<p class="description">Write down temporary &#39;wisdom&#39; ..</p>
+
+</header>
+<div class="global-menu">
+<nav>
+<ul>
+<li><a href="/lc-notebook/">Home</a></li>
+<li><a href="https://twitter.com/yanyu_liang">Twitter</a></li>
+<li><a href="/lc-notebook/about/">About Hugo</a></li></ul>
+</nav>
+</div>
+<div class="content-container">
+<main><h1>Q600: Non-negative Integers without Consecutive Ones</h1>
+<pre><code>Given a positive integer n, find the number of non-negative integers less than or equal to n, whose binary representations do NOT contain consecutive ones.
+
+Example 1:
+Input: 5
+Output: 5
+Explanation: 
+Here are the non-negative integers &lt;= 5 with their corresponding binary representations:
+0 : 0
+1 : 1
+2 : 10
+3 : 11
+4 : 100
+5 : 101
+Among them, only integer 3 disobeys the rule (two consecutive ones) and the other 5 satisfy the rule. 
+</code></pre><p>Let&rsquo;s say the number without consecutive ones is called &ldquo;good number&rdquo;.
+To count the number of &ldquo;good number&rdquo; with less than or equal to N bits is straight forward.
+In brief, we can maintain some states like the number of &ldquo;good number&rdquo; with at most j bits that <strong>ends with zero or one</strong>.
+With this setting up, we can have some recursion like:</p>
+<ul>
+<li><code>ngood_end_with_1[j] = ngood_end_with_0[j - 1]</code></li>
+<li><code>ngood_end_with_0[j] = ngood_end_with_1[j - 1] + ngood_end_with_0[j - 1]</code></li>
+</ul>
+<p>OK, then the problem becomes how to count the number of &ldquo;good number&rdquo; &lt;= the target (<em>and it takes me forever to get it right, and this motivates me the write it down ..</em>).</p>
+<p>The initial idea is simple.
+Suppose the target is 10000, then we can simply count the &ldquo;good number&rdquo; with at most 4 bits (and add 1 at the end since we need to include 10000 as well).
+Then for a more complex number like 10100, then we can count 4-bit &ldquo;good number&quot;s and count &ldquo;good number&rdquo; like 100XX which means counting 2-bit &ldquo;good number&rdquo;.
+Still, we need extra 1 to count 10100.
+But what if we encounter 10110?
+Besides the 4-bit and 2-bit, we need to consider 1010X, essentially 1-bit.
+And no need to add extra 1 since we don&rsquo;t want to count 10110.</p>
+<p>So, we can scan from the leading &ldquo;1&rdquo; and count the n-bit &ldquo;good number&rdquo; and move to the next &ldquo;1&rdquo;.
+If the &ldquo;1&rdquo; is right after another &ldquo;1&rdquo;, we count the n-bit and then we can return since for number 11&hellip; then pattern 10X&hellip; has already included all &ldquo;good number&quot;s that is smaller than 11&hellip; .
+If we are not returning immediately, we need to add extra 1 (as discussed above).</p>
+<p>Another tip to note, we need to initialize the number of 0-bit &ldquo;good number&rdquo; as 1 since it actually means the number of 0-bit &ldquo;good number&rdquo; with leading zero (in the form of 0X).
+So, it is 1 rather than 0.</p>
+<p>Taking together, we have the Python submission.</p>
+<pre><code>class Solution:
+    def findIntegers(self, num: int) -&gt; int:
+        if num &lt;= 1:
+            return num + 1
+        num_str = &quot;{0:b}&quot;.format(num)
+        ngood_array = [ [ 0, 0 ] for i in range(len(num_str)) ]
+        ngood_array[1][0] = 1
+        ngood_array[1][1] = 1
+        ngood_array[0][0] = 1
+        for j in range(2, len(ngood_array)):
+            ngood_array[j][0] = ngood_array[j - 1][0] + ngood_array[j - 1][1]
+            ngood_array[j][1] = ngood_array[j - 1][0]
+        res = sum(ngood_array[len(num_str) - 1])
+        pos = 1
+        prev = '1'
+        while pos &lt; len(num_str):
+            if num_str[pos] == '1':
+                res += sum(ngood_array[len(num_str) - pos - 1])
+                if prev == '1':
+                    return res
+                
+            prev = num_str[pos]
+            pos += 1
+        return res + 1
+</code></pre><div class="edit-meta">
+Last updated on 11 Oct 2020
+
+
+<br>
+Published on 11 Oct 2020
+<br><a href="https://github.com/liangyy/lc-notebook/edit/master/content/NeedtoKnow/q600.md" class="edit-page"><i class="fas fa-pen-square"></i> Edit on GitHub</a></div><nav class="pagination"><a class="nav nav-prev" href="https://liangyy.github.io/lc-notebook/needtoknow/" title="Need to Know"><i class="fas fa-arrow-left" aria-hidden="true"></i> Prev - Need to Know</a>
+<a class="nav nav-next" href="https://liangyy.github.io/lc-notebook/needtoknow/q309/" title="Q309: Best Time to Buy and Sell Stock with Cooldown">Next - Q309: Best Time to Buy and Sell Stock with Cooldown <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+</nav><footer><p class="powered">Powered by <a href="https://gohugo.io">Hugo</a>. Theme by <a href="https://themes.gohugo.io/hugo-theme-techdoc/">TechDoc</a>. Designed by <a href="https://github.com/thingsym/hugo-theme-techdoc">Thingsym</a>.</p>
+</footer>
+</main>
+<div class="sidebar">
+
+<nav class="open-menu">
+<ul>
+<li class=""><a href="https://liangyy.github.io/lc-notebook">Home</a></li>
+
+<li class="parent"><a href="https://liangyy.github.io/lc-notebook/needtoknow/">Need to Know</a>
+  
+<ul class="sub-menu">
+<li class="active"><a href="https://liangyy.github.io/lc-notebook/needtoknow/q600/">Q600: Non-negative Integers without Consecutive Ones</a></li>
+<li class=""><a href="https://liangyy.github.io/lc-notebook/needtoknow/q309/">Q309: Best Time to Buy and Sell Stock with Cooldown</a></li>
+</ul>
+  
+</li>
+
+<li class=""><a href="https://liangyy.github.io/lc-notebook/smalltrick/">Small Trick</a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://liangyy.github.io/lc-notebook/smalltrick/q337/">Q337: House Robber III</a></li>
+</ul>
+  
+</li>
+
+<li class=""><a href="https://liangyy.github.io/lc-notebook/interesting/">Interesting</a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://liangyy.github.io/lc-notebook/interesting/q995/">Q995: Minimum Number of K Consecutive Bit Flips</a></li>
+</ul>
+  
+</li>
+</ul>
+</nav>
+
+
+
+<div class="sidebar-footer"></div>
+</div>
+
+</div><a href="#" id="backtothetop-fixed" class="backtothetop"
+ data-backtothetop-duration="600"
+ data-backtothetop-easing="easeOutQuart"
+ data-backtothetop-fixed-fadeIn="1000"
+ data-backtothetop-fixed-fadeOut="1000"
+ data-backtothetop-fixed-bottom="10"
+ data-backtothetop-fixed-right="20">
+<span class="fa-layers fa-fw">
+<i class="fas fa-circle"></i>
+<i class="fas fa-arrow-circle-up"></i>
+</span></a>
+</div>
+</body>
+</html>
