@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Q316. Remove Duplicate Letters - LeetCode NoteBook</title>
+<meta name="description" content="Write down temporary &#39;wisdom&#39; ..">
+<meta name="generator" content="Hugo 0.76.3" />
+<link href="https://liangyy.github.io/lc-notebook/index.xml" rel="alternate" type="application/rss+xml">
+<link rel="canonical" href="https://liangyy.github.io/lc-notebook/needtoknow/q316/">
+<link rel="stylesheet" href="https://liangyy.github.io/lc-notebook/css/theme.min.css">
+<script src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+<link rel="stylesheet" href="https://liangyy.github.io/lc-notebook/css/chroma.min.css">
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery.easing@1.4.1/jquery.easing.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script>
+<script src="https://liangyy.github.io/lc-notebook/js/bundle.js"></script><style>
+:root {--custom-background-color: #99ccff;}
+</style>
+<meta property="og:title" content="Q316. Remove Duplicate Letters" />
+<meta property="og:description" content="Given a string s, remove duplicate letters so that every letter appears once and only once. You must make sure your result is the smallest in lexicographical order among all possible results. Note: This question is the same as 1081: https://leetcode.com/problems/smallest-subsequence-of-distinct-characters/ Example 1: Input: s = &quot;bcabc&quot; Output: &quot;abc&quot; Example 2: Input: s = &quot;cbacdcbc&quot; Output: &quot;acdb&quot; Constraints: 1 &lt;= s.length &lt;= 104 s consists of lowercase English letters. I think this question definitely fits into &ldquo;Need to Know&rdquo; category." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://liangyy.github.io/lc-notebook/needtoknow/q316/" />
+<meta property="article:published_time" content="2020-10-12T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-10-12T00:00:00+00:00" /><meta property="og:site_name" content="LeetCode NoteBook" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Q316. Remove Duplicate Letters"/>
+<meta name="twitter:description" content="Given a string s, remove duplicate letters so that every letter appears once and only once. You must make sure your result is the smallest in lexicographical order among all possible results. Note: This question is the same as 1081: https://leetcode.com/problems/smallest-subsequence-of-distinct-characters/ Example 1: Input: s = &quot;bcabc&quot; Output: &quot;abc&quot; Example 2: Input: s = &quot;cbacdcbc&quot; Output: &quot;acdb&quot; Constraints: 1 &lt;= s.length &lt;= 104 s consists of lowercase English letters. I think this question definitely fits into &ldquo;Need to Know&rdquo; category."/>
+<meta itemprop="name" content="Q316. Remove Duplicate Letters">
+<meta itemprop="description" content="Given a string s, remove duplicate letters so that every letter appears once and only once. You must make sure your result is the smallest in lexicographical order among all possible results. Note: This question is the same as 1081: https://leetcode.com/problems/smallest-subsequence-of-distinct-characters/ Example 1: Input: s = &quot;bcabc&quot; Output: &quot;abc&quot; Example 2: Input: s = &quot;cbacdcbc&quot; Output: &quot;acdb&quot; Constraints: 1 &lt;= s.length &lt;= 104 s consists of lowercase English letters. I think this question definitely fits into &ldquo;Need to Know&rdquo; category.">
+<meta itemprop="datePublished" content="2020-10-12T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-10-12T00:00:00+00:00" />
+<meta itemprop="wordCount" content="414">
+
+
+
+<meta itemprop="keywords" content="" />
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$','$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  };
+
+  window.addEventListener('load', (event) => {
+      document.querySelectorAll("mjx-container").forEach(function(x){
+        x.parentElement.classList += 'has-jax'})
+    });
+
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body><div class="container"><header>
+<h1>LeetCode NoteBook</h1><a href="https://github.com/liangyy/lc-notebook" class="github"><i class="fab fa-github"></i></a>
+<p class="description">Write down temporary &#39;wisdom&#39; ..</p>
+
+</header>
+<div class="global-menu">
+<nav>
+<ul>
+<li><a href="/lc-notebook/">Home</a></li>
+<li><a href="https://twitter.com/yanyu_liang">Twitter</a></li>
+<li><a href="/lc-notebook/about/">About Hugo</a></li></ul>
+</nav>
+</div>
+<div class="content-container">
+<main><h1>Q316. Remove Duplicate Letters</h1>
+<pre><code>Given a string s, remove duplicate letters so that every letter appears once and only once. You must make sure your result is the smallest in lexicographical order among all possible results.
+
+Note: This question is the same as 1081: https://leetcode.com/problems/smallest-subsequence-of-distinct-characters/
+
+ 
+
+Example 1:
+
+Input: s = &quot;bcabc&quot;
+Output: &quot;abc&quot;
+Example 2:
+
+Input: s = &quot;cbacdcbc&quot;
+Output: &quot;acdb&quot;
+ 
+
+Constraints:
+
+1 &lt;= s.length &lt;= 104
+s consists of lowercase English letters.
+</code></pre><p>I think this question definitely fits into &ldquo;Need to Know&rdquo; category.
+It uses clever trick which I did not get it initially.</p>
+<p>It turns out that we could do this greedily.
+From left to right, when we get increasing characters in a row, we don&rsquo;t need to do any further thing.
+But when a small character occurs, we want to start over from the small one if the previous characters re-occur in the subsequent strings.
+But what if some characters do not occur again?
+It suggests that they should be at least at the current position or even occur earlier.
+But since the previous string is increasing, to keep the not re-occurring character at the current position is the best solution.</p>
+<p>OK, let&rsquo;s wrap up the idea above into an algorithm.
+First we need to know if the character is re-occurring after a position.
+To do so, we can record the last position of each character.
+Another detail is that whenever we saw a character that have already occurred in the current string, we safely ignore it since to start over at the new one won&rsquo;t give better solution that the current one.</p>
+<p>Summing up, the algorithm is:</p>
+<ol>
+<li>
+<p>At position j, if <code>s[j]</code> is not in the current <code>stack</code> (use a dict to maintain this):</p>
+<ul>
+<li>If <code>s[j]</code> &gt; <code>stack[-1]</code>, append <code>s[j]</code> to the end of <code>stack</code></li>
+<li>If <code>s[j]</code> &lt; <code>stack[-1]</code> and <code>last_position[stack[-1]] &gt; j</code>, pop the top one in the <code>stack</code> until one of the two conditions <code>s[j]</code> &lt; <code>stack[-1]</code> and <code>last_position[stack[-1]] &gt; j</code> do not hold.</li>
+</ul>
+</li>
+<li>
+<p>The <code>stack</code> contains the solution.</p>
+</li>
+</ol>
+<p>The Python submission is:</p>
+<pre><code>class Solution:
+    def removeDuplicateLetters(self, s: str) -&gt; str:
+        
+        if len(s) &lt;= 1:
+            return s
+        
+        n_occur_dict = {}
+        for j in range(len(s)):
+            n_occur_dict[s[j]] = j
+        
+        memory = {}
+        mystack = []
+        for j in range(len(s)):
+            if s[j] not in memory:
+                if len(mystack) == 0 or s[j] &gt; mystack[-1]:
+                    pass
+                else:
+                    while len(mystack) &gt; 0 and s[j] &lt; mystack[-1] and n_occur_dict[mystack[-1]] &gt; j:
+                        del memory[mystack.pop()]
+                memory[s[j]] = 1
+                mystack.append(s[j])
+        res = ''
+        for i in memory:
+            res += i
+        return res
+</code></pre><div class="edit-meta">
+Last updated on 12 Oct 2020
+
+
+<br>
+Published on 12 Oct 2020
+<br><a href="https://github.com/liangyy/lc-notebook/edit/master/content/NeedtoKnow/q316.md" class="edit-page"><i class="fas fa-pen-square"></i> Edit on GitHub</a></div><nav class="pagination"><a class="nav nav-prev" href="https://liangyy.github.io/lc-notebook/needtoknow/" title="Need to Know"><i class="fas fa-arrow-left" aria-hidden="true"></i> Prev - Need to Know</a>
+<a class="nav nav-next" href="https://liangyy.github.io/lc-notebook/needtoknow/q459/" title="Q459. Repeated Substring Pattern">Next - Q459. Repeated Substring Pattern <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+</nav><footer><p class="powered">Powered by <a href="https://gohugo.io">Hugo</a>. Theme by <a href="https://themes.gohugo.io/hugo-theme-techdoc/">TechDoc</a>. Designed by <a href="https://github.com/thingsym/hugo-theme-techdoc">Thingsym</a>.</p>
+</footer>
+</main>
+<div class="sidebar">
+
+<nav class="open-menu">
+<ul>
+<li class=""><a href="https://liangyy.github.io/lc-notebook">Home</a></li>
+
+<li class="parent"><a href="https://liangyy.github.io/lc-notebook/needtoknow/">Need to Know</a>
+  
+<ul class="sub-menu">
+<li class="active"><a href="https://liangyy.github.io/lc-notebook/needtoknow/q316/">Q316. Remove Duplicate Letters</a></li>
+<li class=""><a href="https://liangyy.github.io/lc-notebook/needtoknow/q459/">Q459. Repeated Substring Pattern</a></li>
+<li class=""><a href="https://liangyy.github.io/lc-notebook/needtoknow/q600/">Q600: Non-negative Integers without Consecutive Ones</a></li>
+<li class=""><a href="https://liangyy.github.io/lc-notebook/needtoknow/q309/">Q309: Best Time to Buy and Sell Stock with Cooldown</a></li>
+</ul>
+  
+</li>
+
+<li class=""><a href="https://liangyy.github.io/lc-notebook/smalltrick/">Small Trick</a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://liangyy.github.io/lc-notebook/smalltrick/q337/">Q337: House Robber III</a></li>
+</ul>
+  
+</li>
+
+<li class=""><a href="https://liangyy.github.io/lc-notebook/interesting/">Interesting</a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://liangyy.github.io/lc-notebook/interesting/q384/">Q384. Shuffle an Array</a></li>
+<li class=""><a href="https://liangyy.github.io/lc-notebook/interesting/q995/">Q995: Minimum Number of K Consecutive Bit Flips</a></li>
+</ul>
+  
+</li>
+</ul>
+</nav>
+
+
+
+<div class="sidebar-footer"></div>
+</div>
+
+</div><a href="#" id="backtothetop-fixed" class="backtothetop"
+ data-backtothetop-duration="600"
+ data-backtothetop-easing="easeOutQuart"
+ data-backtothetop-fixed-fadeIn="1000"
+ data-backtothetop-fixed-fadeOut="1000"
+ data-backtothetop-fixed-bottom="10"
+ data-backtothetop-fixed-right="20">
+<span class="fa-layers fa-fw">
+<i class="fas fa-circle"></i>
+<i class="fas fa-arrow-circle-up"></i>
+</span></a>
+</div>
+</body>
+</html>
