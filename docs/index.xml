@@ -44,6 +44,15 @@
     </item>
     
     <item>
+      <title>Q847. Shortest Path Visiting All Nodes</title>
+      <link>https://liangyy.github.io/lc-notebook/needtoknow/q847/</link>
+      <pubDate>Sun, 11 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://liangyy.github.io/lc-notebook/needtoknow/q847/</guid>
+      <description>An undirected, connected graph of N nodes (labeled 0, 1, 2, ..., N-1) is given as graph. graph.length = N, and j != i is in the list graph[i] exactly once, if and only if nodes i and j are connected. Return the length of the shortest path that visits every node. You may start and stop at any node, you may revisit nodes multiple times, and you may reuse edges.</description>
+    </item>
+    
+    <item>
       <title>Q309: Best Time to Buy and Sell Stock with Cooldown</title>
       <link>https://liangyy.github.io/lc-notebook/needtoknow/q309/</link>
       <pubDate>Sat, 10 Oct 2020 00:00:00 +0000</pubDate>
