@@ -8,6 +8,15 @@
     <language>en-us</language>
     <lastBuildDate>Fri, 09 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://liangyy.github.io/lc-notebook/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Q142. Linked List Cycle II</title>
+      <link>https://liangyy.github.io/lc-notebook/interesting/q142/</link>
+      <pubDate>Tue, 27 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://liangyy.github.io/lc-notebook/interesting/q142/</guid>
+      <description>Given a linked list, return the node where the cycle begins. If there is no cycle, return null. There is a cycle in a linked list if there is some node in the list that can be reached again by continuously following the next pointer. Internally, pos is used to denote the index of the node that tail&#39;s next pointer is connected to. Note that pos is not passed as a parameter.</description>
+    </item>
+    
+    <item>
       <title>Q316. Remove Duplicate Letters</title>
       <link>https://liangyy.github.io/lc-notebook/needtoknow/q316/</link>
       <pubDate>Mon, 12 Oct 2020 00:00:00 +0000</pubDate>
