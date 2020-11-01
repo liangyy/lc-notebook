@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Q673. Number of Longest Increasing Subsequence - LeetCode NoteBook</title>
+<meta name="description" content="Write down temporary &#39;wisdom&#39; ..">
+<meta name="generator" content="Hugo 0.76.3" />
+<link href="https://liangyy.github.io/lc-notebook/index.xml" rel="alternate" type="application/rss+xml">
+<link rel="canonical" href="https://liangyy.github.io/lc-notebook/needtoknow/q673/">
+<link rel="stylesheet" href="https://liangyy.github.io/lc-notebook/css/theme.min.css">
+<script src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+<link rel="stylesheet" href="https://liangyy.github.io/lc-notebook/css/chroma.min.css">
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery.easing@1.4.1/jquery.easing.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script>
+<script src="https://liangyy.github.io/lc-notebook/js/bundle.js"></script><style>
+:root {--custom-background-color: #99ccff;}
+</style>
+<meta property="og:title" content="Q673. Number of Longest Increasing Subsequence" />
+<meta property="og:description" content="Given an integer array nums, return the number of longest increasing subsequences. Example 1: Input: nums = [1,3,5,4,7] Output: 2 Explanation: The two longest increasing subsequences are [1, 3, 4, 7] and [1, 3, 5, 7]. Example 2: Input: nums = [2,2,2,2,2] Output: 5 Explanation: The length of longest continuous increasing subsequence is 1, and there are 5 subsequences&#39; length is 1, so output 5. Constraints: 0 &lt;= nums.length &lt;= 2000 -106 &lt;= nums[i] &lt;= 106 For this question, my first thought is dynamic programming." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://liangyy.github.io/lc-notebook/needtoknow/q673/" />
+<meta property="article:published_time" content="2020-10-31T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-10-31T00:00:00+00:00" /><meta property="og:site_name" content="LeetCode NoteBook" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Q673. Number of Longest Increasing Subsequence"/>
+<meta name="twitter:description" content="Given an integer array nums, return the number of longest increasing subsequences. Example 1: Input: nums = [1,3,5,4,7] Output: 2 Explanation: The two longest increasing subsequences are [1, 3, 4, 7] and [1, 3, 5, 7]. Example 2: Input: nums = [2,2,2,2,2] Output: 5 Explanation: The length of longest continuous increasing subsequence is 1, and there are 5 subsequences&#39; length is 1, so output 5. Constraints: 0 &lt;= nums.length &lt;= 2000 -106 &lt;= nums[i] &lt;= 106 For this question, my first thought is dynamic programming."/>
+<meta itemprop="name" content="Q673. Number of Longest Increasing Subsequence">
+<meta itemprop="description" content="Given an integer array nums, return the number of longest increasing subsequences. Example 1: Input: nums = [1,3,5,4,7] Output: 2 Explanation: The two longest increasing subsequences are [1, 3, 4, 7] and [1, 3, 5, 7]. Example 2: Input: nums = [2,2,2,2,2] Output: 5 Explanation: The length of longest continuous increasing subsequence is 1, and there are 5 subsequences&#39; length is 1, so output 5. Constraints: 0 &lt;= nums.length &lt;= 2000 -106 &lt;= nums[i] &lt;= 106 For this question, my first thought is dynamic programming.">
+<meta itemprop="datePublished" content="2020-10-31T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-10-31T00:00:00+00:00" />
+<meta itemprop="wordCount" content="496">
+
+
+
+<meta itemprop="keywords" content="" />
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$','$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  };
+
+  window.addEventListener('load', (event) => {
+      document.querySelectorAll("mjx-container").forEach(function(x){
+        x.parentElement.classList += 'has-jax'})
+    });
+
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body><div class="container"><header>
+<h1>LeetCode NoteBook</h1><a href="https://github.com/liangyy/lc-notebook" class="github"><i class="fab fa-github"></i></a>
+<p class="description">Write down temporary &#39;wisdom&#39; ..</p>
+
+</header>
+<div class="global-menu">
+<nav>
+<ul>
+<li><a href="/lc-notebook/">Home</a></li>
+<li><a href="https://twitter.com/yanyu_liang">Twitter</a></li>
+<li><a href="/lc-notebook/about/">About Hugo</a></li></ul>
+</nav>
+</div>
+<div class="content-container">
+<main><h1>Q673. Number of Longest Increasing Subsequence</h1>
+<pre><code>Given an integer array nums, return the number of longest increasing subsequences.
+
+ 
+
+Example 1:
+
+Input: nums = [1,3,5,4,7]
+Output: 2
+Explanation: The two longest increasing subsequences are [1, 3, 4, 7] and [1, 3, 5, 7].
+Example 2:
+
+Input: nums = [2,2,2,2,2]
+Output: 5
+Explanation: The length of longest continuous increasing subsequence is 1, and there are 5 subsequences' length is 1, so output 5.
+
+ 
+
+Constraints:
+
+0 &lt;= nums.length &lt;= 2000
+-106 &lt;= nums[i] &lt;= 106
+</code></pre><p>For this question, my first thought is dynamic programming.
+Essentially, we want to maintain the solution to the following problem: the number of the longest subsequence of the prefix <code>nums[1:k]</code> which contains <code>nums[k]</code>. Also, we also want to keep the length of such longest subsequence.</p>
+<p>The subproblem for <code>nums[1:k]</code> can be easily derived from all the previous subproblems (for smaller prefixes). Suppose for the subproblem, the number of longest subsequence is called <code>n_ls</code> and the length of such sequence is <code>l_ls</code>.</p>
+<ul>
+<li>If there exists <code>nums[j]</code> &lt; <code>nums[k]</code> for any <code>j &lt; k</code>, then find the <code>j_max</code> among the <code>j</code>s' with longest length subsequence and update <code>n_ls[k] = sum(n_ls[j_max])</code> and <code>l_ls[k] = l_ls[j_max]</code>.</li>
+<li>If there is no such <code>j</code>, <code>n_ls[k] = 1</code> and <code>l_ls[k] = 1</code>.</li>
+</ul>
+<p>The Python submission is.</p>
+<pre><code>class Solution:
+    def findNumberOfLIS(self, nums: List[int]) -&gt; int:
+        # dp: dp[i] record the number of longest subsequences ends at i and the length of the subseq
+        # dp[i] = sum(dp[k][0]),  for k such that k &lt; i and nums[k] &lt;= nums[i] and max k dp[k][1] if no k, then dp[i] = 1, 1
+        # return sum(dp[k][0]) for max k of dp[k][1]  
+        # complexity O(n^2)
+        
+        n = len(nums)
+        if n &lt;= 1:
+            return n
+        dp = [ [0, 0] for i in range(n) ]
+        dp[0] = [1, 1]
+        for i in range(1, n):
+            max_l = 0
+            good_k = []
+            for j in range(i):
+                if nums[j] &lt; nums[i]:
+                    if max_l &lt; dp[j][1]:
+                        good_k = [ j ]
+                        max_l = max(max_l, dp[j][1])
+                    elif max_l == dp[j][1]:
+                        good_k.append(j)
+            if len(good_k) == 0:
+                dp[i] = [1, 1]
+            else:
+                dp[i][1] = max_l + 1
+                for k in good_k:
+                    dp[i][0] += dp[k][0]
+        max_l = 0
+        res = 0
+        # print(dp)
+        for k in range(n):
+            if max_l &lt; dp[k][1]:
+                max_l = dp[k][1]
+                res = dp[k][0]
+            elif max_l == dp[k][1]:
+                res += dp[k][0]
+        return res
+</code></pre><p><strong>NOTE</strong>: We can easily see that the time complexity is $O(N^2)$ since we need to traverse all the previous subproblem in order to solve the current subproblem.
+From the solution in LC, it seems that we can also use segment tree to solve the problem which gives $O(N\log N)$ time complexity.
+But unfortunately, I&rsquo;m not quite familiar with segment tree and I did not get the point.
+Now that I have to <strong>push segment tree to my wish list</strong>.
+As a starting point, I list some references: <a href="https://leetcode.com/articles/a-recursive-approach-to-segment-trees-range-sum-queries-lazy-propagation/">a leetcode discussion on segment tree</a>, <a href="https://visualgo.net/en">a good visualization tool for data structure and algorithm</a>.<br>
+And I will solve <a href="https://leetcode.com/problems/range-sum-query-mutable/">Q307: Range Sum Query - Mutable</a> in this <a href="../q307">post</a>.</p>
+<div class="edit-meta">
+Last updated on 31 Oct 2020
+
+
+<br>
+Published on 31 Oct 2020
+<br><a href="https://github.com/liangyy/lc-notebook/edit/master/content/NeedtoKnow/q673.md" class="edit-page"><i class="fas fa-pen-square"></i> Edit on GitHub</a></div><nav class="pagination"><a class="nav nav-prev" href="https://liangyy.github.io/lc-notebook/needtoknow/" title="Need to Know"><i class="fas fa-arrow-left" aria-hidden="true"></i> Prev - Need to Know</a>
+<a class="nav nav-next" href="https://liangyy.github.io/lc-notebook/needtoknow/q316/" title="Q316. Remove Duplicate Letters">Next - Q316. Remove Duplicate Letters <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+</nav><footer><p class="powered">Powered by <a href="https://gohugo.io">Hugo</a>. Theme by <a href="https://themes.gohugo.io/hugo-theme-techdoc/">TechDoc</a>. Designed by <a href="https://github.com/thingsym/hugo-theme-techdoc">Thingsym</a>.</p>
+</footer>
+</main>
+<div class="sidebar">
+
+<nav class="open-menu">
+<ul>
+<li class=""><a href="https://liangyy.github.io/lc-notebook">Home</a></li>
+
+<li class="parent"><a href="https://liangyy.github.io/lc-notebook/needtoknow/">Need to Know</a>
+  
+<ul class="sub-menu">
+<li class="active"><a href="https://liangyy.github.io/lc-notebook/needtoknow/q673/">Q673. Number of Longest Increasing Subsequence</a></li>
+<li class=""><a href="https://liangyy.github.io/lc-notebook/needtoknow/q316/">Q316. Remove Duplicate Letters</a></li>
+<li class=""><a href="https://liangyy.github.io/lc-notebook/needtoknow/q459/">Q459. Repeated Substring Pattern</a></li>
+<li class=""><a href="https://liangyy.github.io/lc-notebook/needtoknow/q600/">Q600: Non-negative Integers without Consecutive Ones</a></li>
+<li class=""><a href="https://liangyy.github.io/lc-notebook/needtoknow/q847/">Q847. Shortest Path Visiting All Nodes</a></li>
+<li class=""><a href="https://liangyy.github.io/lc-notebook/needtoknow/q309/">Q309: Best Time to Buy and Sell Stock with Cooldown</a></li>
+<li class=""><a href="https://liangyy.github.io/lc-notebook/needtoknow/q307/">Q307. Range Sum Query - Mutable</a></li>
+</ul>
+  
+</li>
+
+<li class=""><a href="https://liangyy.github.io/lc-notebook/smalltrick/">Small Trick</a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://liangyy.github.io/lc-notebook/smalltrick/q189/">Q189. Rotate Array</a></li>
+<li class=""><a href="https://liangyy.github.io/lc-notebook/smalltrick/q337/">Q337: House Robber III</a></li>
+</ul>
+  
+</li>
+
+<li class=""><a href="https://liangyy.github.io/lc-notebook/interesting/">Interesting</a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://liangyy.github.io/lc-notebook/interesting/q142/">Q142. Linked List Cycle II</a></li>
+<li class=""><a href="https://liangyy.github.io/lc-notebook/interesting/q384/">Q384. Shuffle an Array</a></li>
+<li class=""><a href="https://liangyy.github.io/lc-notebook/interesting/q995/">Q995: Minimum Number of K Consecutive Bit Flips</a></li>
+</ul>
+  
+</li>
+</ul>
+</nav>
+
+
+
+<div class="sidebar-footer"></div>
+</div>
+
+</div><a href="#" id="backtothetop-fixed" class="backtothetop"
+ data-backtothetop-duration="600"
+ data-backtothetop-easing="easeOutQuart"
+ data-backtothetop-fixed-fadeIn="1000"
+ data-backtothetop-fixed-fadeOut="1000"
+ data-backtothetop-fixed-bottom="10"
+ data-backtothetop-fixed-right="20">
+<span class="fa-layers fa-fw">
+<i class="fas fa-circle"></i>
+<i class="fas fa-arrow-circle-up"></i>
+</span></a>
+</div>
+</body>
+</html>
