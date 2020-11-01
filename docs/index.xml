@@ -17,6 +17,15 @@
     </item>
     
     <item>
+      <title>Q99. Recover Binary Search Tree</title>
+      <link>https://liangyy.github.io/lc-notebook/needtoknow/q99/</link>
+      <pubDate>Sat, 31 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://liangyy.github.io/lc-notebook/needtoknow/q99/</guid>
+      <description>You are given the root of a binary search tree (BST), where exactly two nodes of the tree were swapped by mistake. Recover the tree without changing its structure. Follow up: A solution using O(n) space is pretty straight forward. Could you devise a constant space solution? Example 1: Input: root = [1,3,null,null,2] Output: [3,1,null,null,2] Explanation: 3 cannot be a left child of 1 because 3 &amp;gt; 1. Swapping 1 and 3 makes the BST valid.</description>
+    </item>
+    
+    <item>
       <title>Q142. Linked List Cycle II</title>
       <link>https://liangyy.github.io/lc-notebook/interesting/q142/</link>
       <pubDate>Tue, 27 Oct 2020 00:00:00 +0000</pubDate>
@@ -123,6 +132,15 @@ It makes use of a variety of open source projects including:
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://liangyy.github.io/lc-notebook/needtoknow/q307/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Q94. Binary Tree Inorder Traversal</title>
+      <link>https://liangyy.github.io/lc-notebook/needtoknow/q94/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://liangyy.github.io/lc-notebook/needtoknow/q94/</guid>
       <description></description>
     </item>
     
