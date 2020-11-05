@@ -8,6 +8,15 @@
     <language>en-us</language>
     <lastBuildDate>Fri, 09 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://liangyy.github.io/lc-notebook/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Q310. Minimum Height Trees</title>
+      <link>https://liangyy.github.io/lc-notebook/needtoknow/q310/</link>
+      <pubDate>Thu, 05 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://liangyy.github.io/lc-notebook/needtoknow/q310/</guid>
+      <description>A tree is an undirected graph in which any two vertices are connected by exactly one path. In other words, any connected graph without simple cycles is a tree. Given a tree of n nodes labelled from 0 to n - 1, and an array of n - 1 edges where edges[i] = [ai, bi] indicates that there is an undirected edge between the two nodes ai and bi in the tree, you can choose any node of the tree as the root.</description>
+    </item>
+    
+    <item>
       <title>Q673. Number of Longest Increasing Subsequence</title>
       <link>https://liangyy.github.io/lc-notebook/needtoknow/q673/</link>
       <pubDate>Sat, 31 Oct 2020 00:00:00 +0000</pubDate>
