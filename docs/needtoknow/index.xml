@@ -8,6 +8,15 @@
     <language>en-us</language>
     <lastBuildDate>Sat, 10 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://liangyy.github.io/lc-notebook/needtoknow/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Q1283. Find the Smallest Divisor Given a Threshold</title>
+      <link>https://liangyy.github.io/lc-notebook/needtoknow/q1283/</link>
+      <pubDate>Sat, 07 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://liangyy.github.io/lc-notebook/needtoknow/q1283/</guid>
+      <description>Given an array of integers nums and an integer threshold, we will choose a positive integer divisor and divide all the array by it and sum the result of the division. Find the smallest divisor such that the result mentioned above is less than or equal to threshold. Each result of division is rounded to the nearest integer greater than or equal to that element. (For example: 7/3 = 3 and 10/2 = 5).</description>
+    </item>
+    
+    <item>
       <title>Q310. Minimum Height Trees</title>
       <link>https://liangyy.github.io/lc-notebook/needtoknow/q310/</link>
       <pubDate>Thu, 05 Nov 2020 00:00:00 +0000</pubDate>
