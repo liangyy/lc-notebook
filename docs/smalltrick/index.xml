@@ -8,6 +8,15 @@
     <language>en-us</language>
     <lastBuildDate>Sat, 10 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://liangyy.github.io/lc-notebook/smalltrick/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Q1363. Largest Multiple of Three</title>
+      <link>https://liangyy.github.io/lc-notebook/smalltrick/q1363/</link>
+      <pubDate>Mon, 09 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://liangyy.github.io/lc-notebook/smalltrick/q1363/</guid>
+      <description>Given an integer array of digits, return the largest multiple of three that can be formed by concatenating some of the given digits in any order. Since the answer may not fit in an integer data type, return the answer as a string. If there is no answer return an empty string. Example 1: Input: digits = [8,1,9] Output: &amp;quot;981&amp;quot; Example 2: Input: digits = [8,6,7,1,0] Output: &amp;quot;8760&amp;quot; Example 3: Input: digits = [1] Output: &amp;quot;&amp;quot; Example 4: Input: digits = [0,0,0,0,0,0] Output: &amp;quot;0&amp;quot; Constraints: 1 &amp;lt;= digits.</description>
+    </item>
+    
+    <item>
       <title>Q189. Rotate Array</title>
       <link>https://liangyy.github.io/lc-notebook/smalltrick/q189/</link>
       <pubDate>Sat, 10 Oct 2020 00:00:00 +0000</pubDate>
