@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Q593. Valid Square - LeetCode NoteBook</title>
+<meta name="description" content="Write down temporary &#39;wisdom&#39; ..">
+<meta name="generator" content="Hugo 0.76.3" />
+<link href="https://liangyy.github.io/lc-notebook/index.xml" rel="alternate" type="application/rss+xml">
+<link rel="canonical" href="https://liangyy.github.io/lc-notebook/smalltrick/q593/">
+<link rel="stylesheet" href="https://liangyy.github.io/lc-notebook/css/theme.min.css">
+<script src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+<link rel="stylesheet" href="https://liangyy.github.io/lc-notebook/css/chroma.min.css">
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery.easing@1.4.1/jquery.easing.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script>
+<script src="https://liangyy.github.io/lc-notebook/js/bundle.js"></script><style>
+:root {--custom-background-color: #99ccff;}
+</style>
+<meta property="og:title" content="Q593. Valid Square" />
+<meta property="og:description" content="Given the coordinates of four points in 2D space, return whether the four points could construct a square. The coordinate (x,y) of a point is represented by an integer array with two integers. Example: Input: p1 = [0,0], p2 = [1,1], p3 = [1,0], p4 = [0,1] Output: True Note: All the input integers are in the range [-10000, 10000]. A valid square has four equal sides with positive length and four equal angles (90-degree angles)." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://liangyy.github.io/lc-notebook/smalltrick/q593/" />
+<meta property="article:published_time" content="2020-11-11T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-11-11T00:00:00+00:00" /><meta property="og:site_name" content="LeetCode NoteBook" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Q593. Valid Square"/>
+<meta name="twitter:description" content="Given the coordinates of four points in 2D space, return whether the four points could construct a square. The coordinate (x,y) of a point is represented by an integer array with two integers. Example: Input: p1 = [0,0], p2 = [1,1], p3 = [1,0], p4 = [0,1] Output: True Note: All the input integers are in the range [-10000, 10000]. A valid square has four equal sides with positive length and four equal angles (90-degree angles)."/>
+<meta itemprop="name" content="Q593. Valid Square">
+<meta itemprop="description" content="Given the coordinates of four points in 2D space, return whether the four points could construct a square. The coordinate (x,y) of a point is represented by an integer array with two integers. Example: Input: p1 = [0,0], p2 = [1,1], p3 = [1,0], p4 = [0,1] Output: True Note: All the input integers are in the range [-10000, 10000]. A valid square has four equal sides with positive length and four equal angles (90-degree angles).">
+<meta itemprop="datePublished" content="2020-11-11T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-11-11T00:00:00+00:00" />
+<meta itemprop="wordCount" content="611">
+
+
+
+<meta itemprop="keywords" content="" />
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$','$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  };
+
+  window.addEventListener('load', (event) => {
+      document.querySelectorAll("mjx-container").forEach(function(x){
+        x.parentElement.classList += 'has-jax'})
+    });
+
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body><div class="container"><header>
+<h1>LeetCode NoteBook</h1><a href="https://github.com/liangyy/lc-notebook" class="github"><i class="fab fa-github"></i></a>
+<p class="description">Write down temporary &#39;wisdom&#39; ..</p>
+
+</header>
+<div class="global-menu">
+<nav>
+<ul>
+<li><a href="/lc-notebook/">Home</a></li>
+<li><a href="https://twitter.com/yanyu_liang">Twitter</a></li>
+<li><a href="/lc-notebook/about/">About Hugo</a></li></ul>
+</nav>
+</div>
+<div class="content-container">
+<main><h1>Q593. Valid Square</h1>
+<pre><code>Given the coordinates of four points in 2D space, return whether the four points could construct a square.
+
+The coordinate (x,y) of a point is represented by an integer array with two integers.
+
+Example:
+
+Input: p1 = [0,0], p2 = [1,1], p3 = [1,0], p4 = [0,1]
+Output: True
+ 
+
+Note:
+
+All the input integers are in the range [-10000, 10000].
+A valid square has four equal sides with positive length and four equal angles (90-degree angles).
+Input points have no order.
+</code></pre><p>There are many ways to solve this problem but I found the solution provided by LeetCode interesting and clever so that I want to write it down here.
+Before getting into their trick, let me state what I did and what makes this problem a bit challenging.</p>
+<p>I ended up calculating all the pairwise distances between all pairs of points.
+And then, I check if these distances follow what we would expect from a square.
+In short, we check two things:</p>
+<ul>
+<li>If there is only two values of distances.</li>
+<li>If the smaller distance has 8 instances and the larger one has 4 instance.</li>
+</ul>
+<p>If these are correct, we can say it is square.
+The reason is as follow.
+Since these smaller distances can only come from the sides A-B, B-C, C-D, D-A. We can check that other cases are impossible.
+So, it can only be diamond.
+And the longer distances are all the same value, so the diamond has to be square.</p>
+<p>The Python submission.</p>
+<pre><code>class Solution:
+    def validSquare(self, p1: List[int], p2: List[int], p3: List[int], p4: List[int]) -&gt; bool:
+        pp = [p1, p2, p3, p4]
+        ll = []
+        for q1 in pp:
+            for q2 in pp:
+                if q1 == q2:
+                    continue
+                ll.append(self.dist(q1, q2))
+        if len(ll) &lt; 12:
+            return False
+        min_l = min(ll)
+        max_l = max(ll)
+        if min_l == max_l:
+            return False
+        n_min = 0
+        n_max = 0
+        for l in ll:
+            if l == min_l:
+                n_min += 1
+            if l == max_l:
+                n_max += 1
+        if n_min == 8 and n_max == 4:
+            return True
+        else:
+            return False
+    def dist(self, s1, s2):
+        x1, y1 = s1
+        x2, y2 = s2
+        return (x1 - x2) ** 2 + (y1 - y2) ** 2
+</code></pre><p>OK, next, let&rsquo;s talk about the trick I learned on LeetCode solution.
+When approaching this problem, one of the difficulty is to give the points a good order.
+If we know the proper ordering of the points (A-B-C-D as square where &ldquo;-&rdquo; presents the side), the job is reduced to a simple check, <em>i.e.</em> are these sides equal? And are these diagonals equal?</p>
+<p>Following this thought, we can easily come up with a brute force solution where we check each ordering. This is fine since the number of ordering is still $O(1)$.</p>
+<p>But actually, we can have a good ordering to begin with.
+Suppose we indeed have a square, then the order the points by x-axis first and y-axis secondly gives a good ordering to check.
+So, we can order the points using this strategy and check.
+If this ordering does not pass the check, we are sure that it is not a square.
+And if it does pass, it is indeed a square.</p>
+<p>The Python submission.</p>
+<pre><code>class Solution:
+    def validSquare(self, p1: List[int], p2: List[int], p3: List[int], p4: List[int]) -&gt; bool:
+        pp = [ p1, p2, p3, p4 ]
+        pp = sorted(pp)
+        d12 = self.dist(pp[0], pp[1])
+        d13 = self.dist(pp[0], pp[2])
+        if d12 != d13 or d12 == 0:
+            return False
+        d14 = self.dist(pp[0], pp[3])
+        d23 = self.dist(pp[1], pp[2])
+        if d23 != d14:
+            return False
+        return True
+    def dist(self, x, y):
+        dist = 0
+        for i, j in zip(x, y):
+            dist += (i - j) ** 2
+        return dist
+</code></pre><div class="edit-meta">
+Last updated on 11 Nov 2020
+
+
+<br>
+Published on 11 Nov 2020
+<br><a href="https://github.com/liangyy/lc-notebook/edit/master/content/SmallTrick/q593.md" class="edit-page"><i class="fas fa-pen-square"></i> Edit on GitHub</a></div><nav class="pagination"><a class="nav nav-prev" href="https://liangyy.github.io/lc-notebook/smalltrick/" title="Small Trick"><i class="fas fa-arrow-left" aria-hidden="true"></i> Prev - Small Trick</a>
+<a class="nav nav-next" href="https://liangyy.github.io/lc-notebook/smalltrick/q1363/" title="Q1363. Largest Multiple of Three">Next - Q1363. Largest Multiple of Three <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+</nav><footer><p class="powered">Powered by <a href="https://gohugo.io">Hugo</a>. Theme by <a href="https://themes.gohugo.io/hugo-theme-techdoc/">TechDoc</a>. Designed by <a href="https://github.com/thingsym/hugo-theme-techdoc">Thingsym</a>.</p>
+</footer>
+</main>
+<div class="sidebar">
+
+<nav class="open-menu">
+<ul>
+<li class=""><a href="https://liangyy.github.io/lc-notebook">Home</a></li>
+
+<li class=""><a href="https://liangyy.github.io/lc-notebook/todo/">To-do list</a>
+  
+</li>
+
+<li class=""><a href="https://liangyy.github.io/lc-notebook/needtoknow/">Need to Know</a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://liangyy.github.io/lc-notebook/needtoknow/q1283/">Q1283. Find the Smallest Divisor Given a Threshold</a></li>
+<li class=""><a href="https://liangyy.github.io/lc-notebook/needtoknow/q310/">Q310. Minimum Height Trees</a></li>
+<li class=""><a href="https://liangyy.github.io/lc-notebook/needtoknow/q673/">Q673. Number of Longest Increasing Subsequence</a></li>
+<li class=""><a href="https://liangyy.github.io/lc-notebook/needtoknow/q99/">Q99. Recover Binary Search Tree</a></li>
+<li class=""><a href="https://liangyy.github.io/lc-notebook/needtoknow/q316/">Q316. Remove Duplicate Letters</a></li>
+<li class=""><a href="https://liangyy.github.io/lc-notebook/needtoknow/q459/">Q459. Repeated Substring Pattern</a></li>
+<li class=""><a href="https://liangyy.github.io/lc-notebook/needtoknow/q600/">Q600: Non-negative Integers without Consecutive Ones</a></li>
+<li class=""><a href="https://liangyy.github.io/lc-notebook/needtoknow/q847/">Q847. Shortest Path Visiting All Nodes</a></li>
+<li class=""><a href="https://liangyy.github.io/lc-notebook/needtoknow/q309/">Q309: Best Time to Buy and Sell Stock with Cooldown</a></li>
+<li class=""><a href="https://liangyy.github.io/lc-notebook/needtoknow/q307/">Q307. Range Sum Query - Mutable</a></li>
+<li class=""><a href="https://liangyy.github.io/lc-notebook/needtoknow/q94/">Q94. Binary Tree Inorder Traversal</a></li>
+</ul>
+  
+</li>
+
+<li class="parent"><a href="https://liangyy.github.io/lc-notebook/smalltrick/">Small Trick</a>
+  
+<ul class="sub-menu">
+<li class="active"><a href="https://liangyy.github.io/lc-notebook/smalltrick/q593/">Q593. Valid Square</a></li>
+<li class=""><a href="https://liangyy.github.io/lc-notebook/smalltrick/q1363/">Q1363. Largest Multiple of Three</a></li>
+<li class=""><a href="https://liangyy.github.io/lc-notebook/smalltrick/q189/">Q189. Rotate Array</a></li>
+<li class=""><a href="https://liangyy.github.io/lc-notebook/smalltrick/q337/">Q337: House Robber III</a></li>
+</ul>
+  
+</li>
+
+<li class=""><a href="https://liangyy.github.io/lc-notebook/interesting/">Interesting</a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://liangyy.github.io/lc-notebook/interesting/q142/">Q142. Linked List Cycle II</a></li>
+<li class=""><a href="https://liangyy.github.io/lc-notebook/interesting/q384/">Q384. Shuffle an Array</a></li>
+<li class=""><a href="https://liangyy.github.io/lc-notebook/interesting/q995/">Q995: Minimum Number of K Consecutive Bit Flips</a></li>
+</ul>
+  
+</li>
+</ul>
+</nav>
+
+
+
+<div class="sidebar-footer"></div>
+</div>
+
+</div><a href="#" id="backtothetop-fixed" class="backtothetop"
+ data-backtothetop-duration="600"
+ data-backtothetop-easing="easeOutQuart"
+ data-backtothetop-fixed-fadeIn="1000"
+ data-backtothetop-fixed-fadeOut="1000"
+ data-backtothetop-fixed-bottom="10"
+ data-backtothetop-fixed-right="20">
+<span class="fa-layers fa-fw">
+<i class="fas fa-circle"></i>
+<i class="fas fa-arrow-circle-up"></i>
+</span></a>
+</div>
+</body>
+</html>

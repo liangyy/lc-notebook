@@ -8,6 +8,15 @@
     <language>en-us</language>
     <lastBuildDate>Fri, 09 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://liangyy.github.io/lc-notebook/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Q593. Valid Square</title>
+      <link>https://liangyy.github.io/lc-notebook/smalltrick/q593/</link>
+      <pubDate>Wed, 11 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://liangyy.github.io/lc-notebook/smalltrick/q593/</guid>
+      <description>Given the coordinates of four points in 2D space, return whether the four points could construct a square. The coordinate (x,y) of a point is represented by an integer array with two integers. Example: Input: p1 = [0,0], p2 = [1,1], p3 = [1,0], p4 = [0,1] Output: True Note: All the input integers are in the range [-10000, 10000]. A valid square has four equal sides with positive length and four equal angles (90-degree angles).</description>
+    </item>
+    
+    <item>
       <title>Q1363. Largest Multiple of Three</title>
       <link>https://liangyy.github.io/lc-notebook/smalltrick/q1363/</link>
       <pubDate>Mon, 09 Nov 2020 00:00:00 +0000</pubDate>
