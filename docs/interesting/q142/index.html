@@ -3,7 +3,7 @@
 <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<title>Q142. Linked List Cycle II - LeetCode NoteBook</title>
+<title>Q458. Poor Pigs - LeetCode NoteBook</title>
 <meta name="description" content="Write down temporary &#39;wisdom&#39; ..">
 <meta name="generator" content="Hugo 0.76.3" />
 <link href="https://liangyy.github.io/lc-notebook/index.xml" rel="alternate" type="application/rss+xml">
@@ -17,20 +17,20 @@
 <script src="https://liangyy.github.io/lc-notebook/js/bundle.js"></script><style>
 :root {--custom-background-color: #99ccff;}
 </style>
-<meta property="og:title" content="Q142. Linked List Cycle II" />
-<meta property="og:description" content="Given a linked list, return the node where the cycle begins. If there is no cycle, return null. There is a cycle in a linked list if there is some node in the list that can be reached again by continuously following the next pointer. Internally, pos is used to denote the index of the node that tail&#39;s next pointer is connected to. Note that pos is not passed as a parameter." />
+<meta property="og:title" content="Q458. Poor Pigs" />
+<meta property="og:description" content="There are 1000 buckets, one and only one of them is poisonous, while the rest are filled with water. They all look identical. If a pig drinks the poison it will die within 15 minutes. What is the minimum amount of pigs you need to figure out which bucket is poisonous within one hour? Answer this question, and write an algorithm for the general case. General case: If there are n buckets and a pig drinking poison will die within m minutes, how many pigs (x) you need to figure out the poisonous bucket within p minutes?" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://liangyy.github.io/lc-notebook/interesting/q142/" />
-<meta property="article:published_time" content="2020-10-27T00:00:00+00:00" />
-<meta property="article:modified_time" content="2020-10-27T00:00:00+00:00" /><meta property="og:site_name" content="LeetCode NoteBook" />
+<meta property="article:published_time" content="2020-11-14T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-11-14T00:00:00+00:00" /><meta property="og:site_name" content="LeetCode NoteBook" />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Q142. Linked List Cycle II"/>
-<meta name="twitter:description" content="Given a linked list, return the node where the cycle begins. If there is no cycle, return null. There is a cycle in a linked list if there is some node in the list that can be reached again by continuously following the next pointer. Internally, pos is used to denote the index of the node that tail&#39;s next pointer is connected to. Note that pos is not passed as a parameter."/>
-<meta itemprop="name" content="Q142. Linked List Cycle II">
-<meta itemprop="description" content="Given a linked list, return the node where the cycle begins. If there is no cycle, return null. There is a cycle in a linked list if there is some node in the list that can be reached again by continuously following the next pointer. Internally, pos is used to denote the index of the node that tail&#39;s next pointer is connected to. Note that pos is not passed as a parameter.">
-<meta itemprop="datePublished" content="2020-10-27T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2020-10-27T00:00:00+00:00" />
-<meta itemprop="wordCount" content="595">
+<meta name="twitter:title" content="Q458. Poor Pigs"/>
+<meta name="twitter:description" content="There are 1000 buckets, one and only one of them is poisonous, while the rest are filled with water. They all look identical. If a pig drinks the poison it will die within 15 minutes. What is the minimum amount of pigs you need to figure out which bucket is poisonous within one hour? Answer this question, and write an algorithm for the general case. General case: If there are n buckets and a pig drinking poison will die within m minutes, how many pigs (x) you need to figure out the poisonous bucket within p minutes?"/>
+<meta itemprop="name" content="Q458. Poor Pigs">
+<meta itemprop="description" content="There are 1000 buckets, one and only one of them is poisonous, while the rest are filled with water. They all look identical. If a pig drinks the poison it will die within 15 minutes. What is the minimum amount of pigs you need to figure out which bucket is poisonous within one hour? Answer this question, and write an algorithm for the general case. General case: If there are n buckets and a pig drinking poison will die within m minutes, how many pigs (x) you need to figure out the poisonous bucket within p minutes?">
+<meta itemprop="datePublished" content="2020-11-14T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-11-14T00:00:00+00:00" />
+<meta itemprop="wordCount" content="659">
 
 
 
@@ -72,99 +72,60 @@
 </nav>
 </div>
 <div class="content-container">
-<main><h1>Q142. Linked List Cycle II</h1>
-<pre><code>Given a linked list, return the node where the cycle begins. If there is no cycle, return null.
+<main><h1>Q458. Poor Pigs</h1>
+<pre><code>There are 1000 buckets, one and only one of them is poisonous, while the rest are filled with water. They all look identical. If a pig drinks the poison it will die within 15 minutes. What is the minimum amount of pigs you need to figure out which bucket is poisonous within one hour?
 
-There is a cycle in a linked list if there is some node in the list that can be reached again by continuously following the next pointer. Internally, pos is used to denote the index of the node that tail's next pointer is connected to. Note that pos is not passed as a parameter.
-
-Notice that you should not modify the linked list.
-
-Follow up:
-
-Can you solve it using O(1) (i.e. constant) memory?
+Answer this question, and write an algorithm for the general case.
 
  
 
-Example 1:
+General case:
 
+If there are n buckets and a pig drinking poison will die within m minutes, how many pigs (x) you need to figure out the poisonous bucket within p minutes? There is exactly one bucket with poison.
 
-Input: head = [3,2,0,-4], pos = 1
-Output: tail connects to node index 1
-Explanation: There is a cycle in the linked list, where tail connects to the second node.
-Example 2:
-
-
-Input: head = [1,2], pos = 0
-Output: tail connects to node index 0
-Explanation: There is a cycle in the linked list, where tail connects to the first node.
-Example 3:
-
-
-Input: head = [1], pos = -1
-Output: no cycle
-Explanation: There is no cycle in the linked list.
  
 
-Constraints:
+Note:
 
-The number of the nodes in the list is in the range [0, 104].
--105 &lt;= Node.val &lt;= 105
-pos is -1 or a valid index in the linked-list.
-</code></pre><p>This question is quite challenging for me.
-I did not come up with the idea ..
-It turns out that we need two pointers to do the trick.
-I feel that it is somewhat clever and fit the question just well.</p>
-<p>To solve the question essentially contains two steps:</p>
-<ol>
-<li>Identify if there is loop.</li>
-<li>If so, identify the node which has two incoming edges.</li>
-</ol>
-<p>The first step is &ldquo;Q141. Linked List Cycle&rdquo;. (If I was given this question, I could not get it, either ..)
-The trick is to use two pointers which have different speeds.
-Specifically, let&rsquo;s have two pointers, <code>slow</code> and <code>fast</code>, where <code>fast</code> goes twice as fast as <code>slow</code>.</p>
-<p>Then, we can image that:</p>
-<ul>
-<li>If there is no loop, <code>fast</code> will hit None eventually and we can terminate safely.</li>
-<li>If there is loop, <code>fast</code> and <code>slow</code> will meet eventually. And suppose the algorithm goes for <code>n</code> steps when they meet, then <code>fast</code> goes <code>n</code> steps more than <code>slow</code> and <code>n</code> is actually the length of (or the multiple of it) the loop.</li>
-</ul>
-<p>OK, here comes to the second part: How to identify the &ldquo;bad&rdquo; node (where the loop &ldquo;start&rdquo;)?
-If the length between the head node and the &ldquo;bad&rdquo; node is <code>L</code>, then we want the <code>fast</code> node to go extra <code>L</code> step to hit the &ldquo;bad&rdquo; node (since it already goes <code>2n - L</code> steps in the loop and need <code>L</code> extra steps to be the multiple of loop size).
-We could implement so by sending <code>slow</code> to the head node and let <code>slow</code> and <code>fast</code> move in the same speed.
-By doing so, they will met at the &ldquo;bad&rdquo; node since after <code>L</code> steps, <code>slow</code> also appears at the &ldquo;bad&rdquo; node.</p>
+A pig can be allowed to drink simultaneously on as many buckets as one would like, and the feeding takes no time.
+After a pig has instantly finished drinking buckets, there has to be a cool down time of m minutes. During this time, only observation is allowed and no feedings at all.
+Any given bucket can be sampled an infinite number of times (by an unlimited number of pigs).
+</code></pre><p>I need to point out that this question get 899 downvotes with 449 upvotes which is hanging red flag.
+But I still want to take some notes on this question since the idea behind the solution looks quite interesting to me.</p>
+<p>At the very beginning, I thought this question is very similar to the &ldquo;dropping egg&rdquo; question and might be able to solve with DP.
+But then, I was thinking about an easy case when only 15 minutes are available.
+In that case, I thought that I would need as many pigs as the buckets, <em>i.e.</em> all buckets have a pig drinking the water. <strong>Well, this turns out to be wrong</strong>.
+Anyway, following this naive routine, I came up with a solution where I repeat this routine at each round. At each round, I let one pig drink water from K buckets so that at the end of each round, I only need to work with the K buckets which poisons the pig.
+With this idea, and some math to minimize the number of pigs needed at each round given the total number of round, I arrived at a solution <code>~ buckets ** (1 / nround)</code>.
+This solution turns out to be wrong and I was confused about why I only need two pigs to test 4 buckets with one round of test.</p>
+<p>OK, my initial idea is just so wrong. It is not about how to reduce the size of the problem at each round of test.
+All it is about is how to encode the information using as fewer pigs as possible.
+Let&rsquo;s think about how to encode first and then examine if it is doable.</p>
+<p>How to encode? If we do K round of tests, for each pig, it has (K+1) possible results: die at 1st round, &hellip;, die at kth round, &hellip;, not die.
+Then, for M pigs, they could encode (K+1)^M possibilities in total.</p>
+<p>Is such encoding achievable? Let&rsquo;s consider the pth pig. We have a list of buckets that need pth pig to have outcome k.
+In this case, the kth test for pth pig should contain water from and only from these buckets.
+This rule applies for any k. Essentially, we can see that for each pig, its outcome will partition the buckets into K+1 parts and each parts form one test with the last part being held out always (so that pig could also be alive to the end).
+Following this rule, we could assign the tests for each pig separately. So, the encoding is achievable.</p>
+<p>The solution is minimum <code>M</code> such that <code>(K + 1)^M &gt; buckets</code> where <code>K = minutesToTest // minutesToDie</code>.</p>
 <p>The Python submission.</p>
-<pre><code># Definition for singly-linked list.
-# class ListNode:
-#     def __init__(self, x):
-#         self.val = x
-#         self.next = None
-
-class Solution:
-    def detectCycle(self, head: ListNode) -&gt; ListNode:
-        slow = head
-        fast = head
-        # fast is twice as fast as slow
-        while fast is not None and fast.next is not None:
-            fast = fast.next.next
-            slow = slow.next
-            if fast is not None and slow == fast:
-                break
-        # print(slow.val, fast.val)
-        if fast is None or fast.next is None:
-            return None
-        slow = head
-        while fast != slow:
-            fast = fast.next
-            slow = slow.next
-            # print(slow.val, fast.val)
-        return slow
+<pre><code>class Solution:
+    def poorPigs(self, buckets: int, minutesToDie: int, minutesToTest: int) -&gt; int:
+        nround = minutesToTest // minutesToDie + 1
+        res = math.log(buckets) / math.log(nround)
+        if res &gt; int(res):
+            res = int(res) + 1
+        else:
+            res = int(res)
+        return res
 </code></pre><div class="edit-meta">
-Last updated on 27 Oct 2020
+Last updated on 14 Nov 2020
 
 
 <br>
-Published on 27 Oct 2020
+Published on 14 Nov 2020
 <br><a href="https://github.com/liangyy/lc-notebook/edit/master/content/Interesting/q142.md" class="edit-page"><i class="fas fa-pen-square"></i> Edit on GitHub</a></div><nav class="pagination"><a class="nav nav-prev" href="https://liangyy.github.io/lc-notebook/interesting/" title="Interesting"><i class="fas fa-arrow-left" aria-hidden="true"></i> Prev - Interesting</a>
-<a class="nav nav-next" href="https://liangyy.github.io/lc-notebook/interesting/q384/" title="Q384. Shuffle an Array">Next - Q384. Shuffle an Array <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+<a class="nav nav-next" href="https://liangyy.github.io/lc-notebook/interesting/q1420/" title="Q142. Linked List Cycle II">Next - Q142. Linked List Cycle II <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
 </nav><footer><p class="powered">Powered by <a href="https://gohugo.io">Hugo</a>. Theme by <a href="https://themes.gohugo.io/hugo-theme-techdoc/">TechDoc</a>. Designed by <a href="https://github.com/thingsym/hugo-theme-techdoc">Thingsym</a>.</p>
 </footer>
 </main>
@@ -211,7 +172,8 @@ Published on 27 Oct 2020
 <li class="parent"><a href="https://liangyy.github.io/lc-notebook/interesting/">Interesting</a>
   
 <ul class="sub-menu">
-<li class="active"><a href="https://liangyy.github.io/lc-notebook/interesting/q142/">Q142. Linked List Cycle II</a></li>
+<li class="active"><a href="https://liangyy.github.io/lc-notebook/interesting/q142/">Q458. Poor Pigs</a></li>
+<li class=""><a href="https://liangyy.github.io/lc-notebook/interesting/q1420/">Q142. Linked List Cycle II</a></li>
 <li class=""><a href="https://liangyy.github.io/lc-notebook/interesting/q384/">Q384. Shuffle an Array</a></li>
 <li class=""><a href="https://liangyy.github.io/lc-notebook/interesting/q995/">Q995: Minimum Number of K Consecutive Bit Flips</a></li>
 </ul>
