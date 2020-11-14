@@ -8,6 +8,15 @@
     <language>en-us</language>
     <lastBuildDate>Fri, 09 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://liangyy.github.io/lc-notebook/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Q47. Permutations II</title>
+      <link>https://liangyy.github.io/lc-notebook/needtoknow/q47/</link>
+      <pubDate>Fri, 13 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://liangyy.github.io/lc-notebook/needtoknow/q47/</guid>
+      <description>Given a collection of numbers, nums, that might contain duplicates, return all possible unique permutations in any order. Example 1: Input: nums = [1,1,2] Output: [[1,1,2], [1,2,1], [2,1,1]] Example 2: Input: nums = [1,2,3] Output: [[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]] Constraints: 1 &amp;lt;= nums.length &amp;lt;= 8 -10 &amp;lt;= nums[i] &amp;lt;= 10 This question is not super tricky to solve but it does need a thorough thought of the problem. I will state what I originally have and what is actually the nice solution of the problem.</description>
+    </item>
+    
+    <item>
       <title>Q593. Valid Square</title>
       <link>https://liangyy.github.io/lc-notebook/smalltrick/q593/</link>
       <pubDate>Wed, 11 Nov 2020 00:00:00 +0000</pubDate>
