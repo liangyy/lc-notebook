@@ -8,6 +8,15 @@
     <language>en-us</language>
     <lastBuildDate>Fri, 09 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://liangyy.github.io/lc-notebook/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Q218. The Skyline Problem</title>
+      <link>https://liangyy.github.io/lc-notebook/needtoknow/q218/</link>
+      <pubDate>Wed, 18 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://liangyy.github.io/lc-notebook/needtoknow/q218/</guid>
+      <description>A city&#39;s skyline is the outer contour of the silhouette formed by all the buildings in that city when viewed from a distance. Now suppose you are given the locations and height of all the buildings as shown on a cityscape photo (Figure A), write a program to output the skyline formed by these buildings collectively (Figure B). Buildings Skyline Contour The geometric information of each building is represented by a triplet of integers [Li, Ri, Hi], where Li and Ri are the x coordinates of the left and right edge of the ith building, respectively, and Hi is its height.</description>
+    </item>
+    
+    <item>
       <title>Q458. Poor Pigs</title>
       <link>https://liangyy.github.io/lc-notebook/interesting/q142/</link>
       <pubDate>Sat, 14 Nov 2020 00:00:00 +0000</pubDate>
